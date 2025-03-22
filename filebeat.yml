@@ -1,0 +1,10 @@
+filebeat.inputs:
+  - type: log
+    enabled: true
+    paths:
+      - /home/abdul-majid/java_projects/LogFlux/sample_logs/*.log
+
+output.kafka:
+  hosts: ["kafka:9092"]
+  topic: "celery-logs"
+  required_acks: 1

@@ -1,0 +1,6 @@
+[2025-03-21 10:05:32,123] INFO [flower:1234] Starting Celery Flower on http://localhost:5555
+[2025-03-21 10:06:10,456] WARNING [flower:1256] Worker 'worker-1@server' is unresponsive
+[2025-03-21 10:07:05,789] INFO [flower:1302] Worker 'worker-2@server' registered successfully
+[2025-03-21 10:07:30,910] ERROR [flower:1320] Task 'tasks.process_data' failed on worker-1@server (Timeout)
+[2025-03-21 10:08:00,112] INFO [flower:1350] Monitoring workers: 3 active, 1 offline
+

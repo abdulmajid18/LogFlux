@@ -1,0 +1,6 @@
+[2025-03-21 10:00:00,001] INFO [celerybeat:1001] Scheduler started at 2025-03-21 10:00:00
+[2025-03-21 10:05:00,234] INFO [celerybeat:1020] Sent task 'tasks.cleanup_temp_files' to queue 'default'
+[2025-03-21 10:10:00,567] WARNING [celerybeat:1050] Task 'tasks.update_metrics' delayed by 30s
+[2025-03-21 10:15:00,890] ERROR [celerybeat:1075] Task 'tasks.sync_data' failed: Database connection lost
+[2025-03-21 10:20:00,345] INFO [celerybeat:1100] All scheduled tasks executed successfully
+
