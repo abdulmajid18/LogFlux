@@ -2,9 +2,27 @@ filebeat.inputs:
   - type: log
     enabled: true
     paths:
-      - /home/abdul-majid/java_projects/LogFlux/sample_logs/*.log
+      - /home/abdul-majid/java_projects/LogFlux/sample_logs/celerybeat.log
+    fields:
+      log_type: "celerybeat"
+
+  - type: log
+    enabled: true
+    paths:
+      - /home/abdul-majid/java_projects/LogFlux/sample_logs/celerytest.log
+    fields:
+      log_type: "celerytask"
 
 output.kafka:
   hosts: ["kafka:9092"]
-  topic: "celery-logs"
   required_acks: 1
+  topic: "default-topic"
+  topics:
+    - topic: "celerybeat-topic"
+      when:
+        equals:
+          fields.log_type: "celerybeat"
+    - topic: "celerytask-topic"
+      when:
+        equals:
+          fields.log_type: "celerytask"
