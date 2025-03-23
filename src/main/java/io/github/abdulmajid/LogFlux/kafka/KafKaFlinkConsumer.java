@@ -8,12 +8,12 @@ import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
 
 public class KafKaFlinkConsumer {
-    public void startConsuming() throws Exception {
+    public static void startConsuming() throws Exception {
         StreamExecutionEnvironment environment = StreamExecutionEnvironment.getExecutionEnvironment();
 
         KafkaSource<String> source = KafkaSource.<String>builder()
             .setBootstrapServers("localhost:9092") 
-            .setTopics("celeryworker-topic")      
+            .setTopics("celery-logs")      
             .setGroupId("flink-consumer-group")   
             .setStartingOffsets(OffsetsInitializer.earliest()) 
             .setValueOnlyDeserializer(new SimpleStringSchema()) 
@@ -24,7 +24,7 @@ public class KafKaFlinkConsumer {
             WatermarkStrategy.noWatermarks(),
             "Kafka Source"
         );
-
+        System.out.println("Consuming.......................");
         dataStream.print();
 
         environment.execute("Kafka to Flink Consumer Job");
