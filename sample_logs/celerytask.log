@@ -1,6 +1,28 @@
-[2025-03-21 10:02:15,678] INFO [celeryworker:2001] Task 'tasks.send_email' started (id=abc123)
-[2025-03-21 10:03:30,789] INFO [celeryworker:2025] Task 'tasks.send_email' completed in 1.2s (id=abc123)
-[2025-03-21 10:04:05,345] ERROR [celeryworker:2050] Task 'tasks.generate_report' failed due to memory error
-[2025-03-21 10:05:45,456] INFO [celeryworker:2075] Task 'tasks.process_video' running on worker-3@server
-[2025-03-21 10:06:20,678] WARNING [celeryworker:2100] Task 'tasks.recalculate_stats' took longer than expected (45s)
-
+[2025-03-13 13:05:41,832: INFO/MainProcess] Connected to redis://redis:6379/0
+[2025-03-13 13:05:41,838: INFO/MainProcess] mingle: searching for neighbors
+[2025-03-13 13:05:42,851: INFO/MainProcess] mingle: all alone
+[2025-03-13 13:05:42,880: INFO/MainProcess] celery@cc645706cc2b ready.
+[2025-03-13 13:09:09,431: INFO/MainProcess] Task core.tasks.send_activation_email_task[65be6ae6-d370-4ec1-b26d-c4cefacce372] received
+[2025-03-13 13:13:40,938: ERROR/ForkPoolWorker-1] Failed to send email to ['nuhuabdulmajid58+0@gmail.com']: [Errno 110] Operation timed out
+[2025-03-13 13:13:40,943: INFO/ForkPoolWorker-1] Task core.tasks.send_activation_email_task[65be6ae6-d370-4ec1-b26d-c4cefacce372] succeeded in 271.50948187499307s: False
+[2025-03-13 13:16:42,186: INFO/MainProcess] Task core.tasks.send_activation_email_task[604b3b58-a41f-46b9-868f-f99977781ee7] received
+[2025-03-13 13:20:05,339: INFO/MainProcess] Connected to redis://redis:6379/0
+[2025-03-13 13:20:05,349: INFO/MainProcess] mingle: searching for neighbors
+[2025-03-13 13:20:06,363: INFO/MainProcess] mingle: all alone
+[2025-03-13 13:20:06,383: INFO/MainProcess] celery@e41cf40914f9 ready.
+[2025-03-13 13:21:25,429: INFO/MainProcess] Task core.tasks.send_activation_email_task[fd52819e-ef58-43db-90b6-f6b797b2c830] received
+[2025-03-13 13:25:54,122: ERROR/ForkPoolWorker-1] Failed to send email to ['nuhuabdulmajid58+1@gmail.com']: [Errno 110] Operation timed out
+[2025-03-13 13:25:54,126: INFO/ForkPoolWorker-1] Task core.tasks.send_activation_email_task[fd52819e-ef58-43db-90b6-f6b797b2c830] succeeded in 268.6952233040065s: False
+[2025-03-13 13:35:16,880: INFO/MainProcess] Task core.tasks.send_activation_email_task[dfedcc3c-81a2-4545-bd57-a1d3c6dcff53] received
+[2025-03-13 13:39:45,610: ERROR/ForkPoolWorker-1] Failed to send email to ['nuhuabdulmajid58@gmail.com']: [Errno 110] Operation timed out
+[2025-03-13 13:39:45,612: INFO/ForkPoolWorker-1] Task core.tasks.send_activation_email_task[dfedcc3c-81a2-4545-bd57-a1d3c6dcff53] succeeded in 268.726858353999s: False
+[2025-03-13 14:15:38,877: INFO/MainProcess] Task core.tasks.send_activation_email_task[7d68cc09-58d4-4942-a6d4-b584c90ae4c3] received
+[2025-03-13 14:16:54,269: INFO/MainProcess] Connected to redis://redis:6379/0
+[2025-03-13 14:16:54,274: INFO/MainProcess] mingle: searching for neighbors
+[2025-03-13 14:16:55,289: INFO/MainProcess] mingle: all alone
+[2025-03-13 14:16:55,313: INFO/MainProcess] celery@ca5637085000 ready.
+{"event": "Task core.tasks.send_activation_email_task[05d43e41-2791-4fb3-8286-f0331f315673] received"}
+{"event": "{\"event\": \"task_started\", \"logger\": \"core.tasks\", \"level\": \"info\", \"timestamp\": \"2025-03-23T16:40:12.826632Z\"}"}
+{"event": "{\"status\": \"sent\", \"email\": \"nuhuabdulmajid58+8@gmail.com\", \"event\": \"send_activation_email\", \"logger\": \"core.tasks\", \"level\": \"info\", \"timestamp\": \"2025-03-23T16:40:16.208987Z\"}"}
+{"event": "Task core.tasks.send_activation_email_task[05d43e41-2791-4fb3-8286-f0331f315673] succeeded in 3.3856196249980712s: True"}
+{"event": "{\"event\": \"task_completed\", \"logger\": \"core.tasks\", \"level\": \"info\", \"timestamp\": \"2025-03-23T16:40:16.212142Z\"}"}
