@@ -2,7 +2,7 @@ filebeat.inputs:
   - type: log
     enabled: true
     paths:
-      - /home/abdul-majid/java_projects/LogFlux/sample_logs/*.log
+      - /home/abdul-majid/java_projects/LogFlux/sample_logs/celerytask.log
 
 output.kafka:
   hosts: ["kafka:9092"]  

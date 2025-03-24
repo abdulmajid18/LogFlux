@@ -8,6 +8,9 @@ services:
       - "2181:2181"
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
+    volumes:
+      - zookeeper-data:/var/lib/zookeeper/data
+      - zookeeper-log:/var/lib/zookeeper/log
 
   # Kafka Broker
   kafka:
@@ -17,12 +20,24 @@ services:
       - zookeeper
     ports:
       - "9092:9092"
+      - "29092:29092" 
     environment:
+      KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,PLAINTEXT_HOST://localhost:29092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_DELETE_TOPIC_ENABLE: "true"
     volumes:
       - kafka-data:/var/lib/kafka/data
+    command: >
+      bash -c "
+        # Clear meta.properties to resolve cluster ID mismatch
+        rm -f /var/lib/kafka/data/meta.properties || true
+        # Start Kafka
+        /etc/confluent/docker/run
+      "
 
   # Filebeat (to collect logs and send to Kafka)
   filebeat:
@@ -31,10 +46,14 @@ services:
     depends_on:
       - kafka
     volumes:
-      - ./filebeat.yml:/usr/share/filebeat/filebeat.yml
-      - /home/abdul-majid/java_projects/LogFlux/sample_logs:/home/abdul-majid/java_projects/LogFlux/sample_logs
+      - ./filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
+      - ./sample_logs:/logs:ro
     restart: unless-stopped
 
-# Volumes for Kafka data persistence
 volumes:
   kafka-data:
+    name: kafka_data_volume
+  zookeeper-data:
+    name: zookeeper_data_volume
+  zookeeper-log:
+    name: zookeeper_log_volume
