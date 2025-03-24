@@ -26,3 +26,8 @@
 {"event": "{\"status\": \"sent\", \"email\": \"nuhuabdulmajid58+8@gmail.com\", \"event\": \"send_activation_email\", \"logger\": \"core.tasks\", \"level\": \"info\", \"timestamp\": \"2025-03-23T16:40:16.208987Z\"}"}
 {"event": "Task core.tasks.send_activation_email_task[05d43e41-2791-4fb3-8286-f0331f315673] succeeded in 3.3856196249980712s: True"}
 {"event": "{\"event\": \"task_completed\", \"logger\": \"core.tasks\", \"level\": \"info\", \"timestamp\": \"2025-03-23T16:40:16.212142Z\"}"}
+{"event": "Task core.tasks.send_activation_email_task[05d43e41-2791-4fb3-8286-f0331f315673] received"}
+{"event": "{\"event\": \"task_started\", \"logger\": \"core.tasks\", \"level\": \"info\", \"timestamp\": \"2025-03-23T16:40:12.826632Z\"}"}
+{"event": "{\"status\": \"sent\", \"email\": \"nuhuabdulmajid58+8@gmail.com\", \"event\": \"send_activation_email\", \"logger\": \"core.tasks\", \"level\": \"info\", \"timestamp\": \"2025-03-23T16:40:16.208987Z\"}"}
+{"event": "Task core.tasks.send_activation_email_task[05d43e41-2791-4fb3-8286-f0331f315673] succeeded in 3.3856196249980712s: True"}
+{"event": "{\"event\": \"task_completed\", \"logger\": \"core.tasks\", \"level\": \"info\", \"timestamp\": \"2025-03-23T16:40:16.212142Z\"}"}
